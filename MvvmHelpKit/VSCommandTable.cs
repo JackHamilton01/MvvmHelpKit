@@ -21,6 +21,6 @@ namespace MvvmHelpKit
     internal sealed partial class PackageIds
     {
         public const int MyMenuGroup = 0x0001;
-        public const int MyCommand = 0x0100;
+        public const int NavigateTo = 0x0100;
     }
 }
