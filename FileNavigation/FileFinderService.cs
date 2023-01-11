@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.WebRequestMethods;
 
 namespace FileNavigation
 {
@@ -11,28 +12,31 @@ namespace FileNavigation
     {
         public string FindCorrectPotentialFile(string activeDocument)
         {
-            var allCSFiles = Directory.GetFiles(Directory.GetCurrentDirectory(), "*.cs", SearchOption.AllDirectories).ToList();
-            var allXAMLFiles = Directory.GetFiles(Directory.GetCurrentDirectory(), "*.xaml", SearchOption.AllDirectories).ToList();
+           var files = Directory
+                .EnumerateFiles(Directory.GetCurrentDirectory())
+                .Where(file => file.ToLower().EndsWith(FileTypes.Cs) || file.ToLower().EndsWith(FileTypes.Xaml))
+                .ToList();
 
-            var activeDocumentName = RemoveEverythingAfterView(activeDocument);
-            string potentialMatch;
-
-            if (activeDocument.Contains(FileType.ViewModel))
+            if (activeDocument.Contains(MvvmTypes.ViewModel))
             {
-                potentialMatch = allXAMLFiles.Where(a => a.Contains(activeDocumentName) && a.Contains(FileType.View)).FirstOrDefault();
+                return filesContainingActiveDocumentName(files, activeDocument, MvvmTypes.View);
             }
             else
             {
-                potentialMatch = allCSFiles.Where(a => a.Contains(activeDocumentName) && a.Contains(FileType.ViewModel)).FirstOrDefault();
+                return filesContainingActiveDocumentName(files, activeDocument, MvvmTypes.ViewModel);
             }
-
-            return potentialMatch;
         }
 
         private string RemoveEverythingAfterView(string activeDocument)
         {
-            var word = activeDocument.Substring(0, activeDocument.LastIndexOf(FileType.View));
+            var word = activeDocument.Substring(0, activeDocument.LastIndexOf(MvvmTypes.View));
             return word;
+        }
+
+        private string filesContainingActiveDocumentName(List<string> files, string activeDocument, string type)
+        {
+            var activeDocumentName = RemoveEverythingAfterView(activeDocument);
+            return files.Where(a => a.Contains(activeDocumentName) && a.Contains(type)).FirstOrDefault();
         }
     }
 }

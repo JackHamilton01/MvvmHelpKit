@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace FileNavigation
 {
-    public static class FileType
+    public static class FileTypes
     {
-        public static readonly string View = nameof(View);
-        public static readonly string ViewModel = nameof(ViewModel);
+        public static readonly string Cs = "cs";
+        public static readonly string Xaml = "xaml";
     }
 }

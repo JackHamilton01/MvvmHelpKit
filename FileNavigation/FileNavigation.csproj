@@ -42,7 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FileFinderService.cs" />
-    <Compile Include="FileType.cs" />
+    <Compile Include="FileTypes.cs" />
+    <Compile Include="MvvmTypes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

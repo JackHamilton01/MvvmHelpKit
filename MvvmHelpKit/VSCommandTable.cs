@@ -22,5 +22,6 @@ namespace MvvmHelpKit
     {
         public const int MyMenuGroup = 0x0001;
         public const int NavigateTo = 0x0100;
+        public const int NavigateToBinding = 0x0101;
     }
 }
