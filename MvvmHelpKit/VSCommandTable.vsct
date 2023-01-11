@@ -12,17 +12,28 @@
 		    <Parent guid="VSMainMenu" id="View"/>
       </Group>
     </Groups>
+	  
 
     <!--This section defines the elements the user can interact with, like a menu command or a button
         or combo box in a toolbar. -->
     <Buttons>
       <Button guid="MvvmHelpKit" id="NavigateTo" priority="0x0100" type="Button">
         <Parent guid="MvvmHelpKit" id="MyMenuGroup" />
-        <Icon guid="ImageCatalogGuid" id="StatusInformation" />
+			  <Icon guid="ImageCatalogGuid" id="NavigateMenu" />
         <CommandFlag>IconIsMoniker</CommandFlag>
         <Strings>
           <ButtonText>Go To View/ViewModel</ButtonText>
           <LocCanonicalName>.View.NavigateTo</LocCanonicalName>
+        </Strings>
+      </Button>
+	
+        <Button guid="MvvmHelpKit" id="NavigateToBinding" priority="0x0101" type="Button">
+        <Parent guid="MvvmHelpKit" id="MyMenuGroup" />
+			  <Icon guid="ImageCatalogGuid" id="ElementHost" />
+        <CommandFlag>IconIsMoniker</CommandFlag>
+        <Strings>
+          <ButtonText>Go To Binding</ButtonText>
+          <LocCanonicalName>.View.NavigateToBinding</LocCanonicalName>
         </Strings>
       </Button>
     </Buttons>
@@ -32,6 +43,7 @@
     <GuidSymbol name="MvvmHelpKit" value="{2356e71a-73ba-4a17-8ba7-37b800dcaca4}">
       <IDSymbol name="MyMenuGroup" value="0x0001" />
       <IDSymbol name="NavigateTo" value="0x0100" />
+      <IDSymbol name="NavigateToBinding" value="0x0101" />
     </GuidSymbol>
   </Symbols>
 </CommandTable>
