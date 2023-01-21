@@ -10,10 +10,10 @@ namespace FileNavigation
 {
     public class FileFinderService
     {
-        public string FindCorrectPotentialFile(string activeDocument)
+        public string FindCorrectPotentialFile(string activeDocument, string solutionPath)
         {
            var files = Directory
-                .EnumerateFiles(Directory.GetCurrentDirectory())
+                .EnumerateFiles(solutionPath)
                 .Where(file => file.ToLower().EndsWith(FileTypes.Cs) || file.ToLower().EndsWith(FileTypes.Xaml))
                 .ToList();
 

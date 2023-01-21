@@ -16,7 +16,7 @@ namespace MvvmHelpKit
         {
             fileFinderService = new FileFinderService();
 
-            var potentialMatch = fileFinderService.FindCorrectPotentialFile(GetActiveFile());
+            var potentialMatch = fileFinderService.FindCorrectPotentialFile(GetActiveFile(), GetActiveFilePath());
             await VS.Documents.OpenAsync(potentialMatch);
         }
 
@@ -24,6 +24,13 @@ namespace MvvmHelpKit
         {
             DTE dte = Microsoft.VisualStudio.Shell.Package.GetGlobalService(typeof(SDTE)) as DTE;
             return dte.ActiveDocument.Name;
+        }
+
+
+        private string GetActiveFilePath()
+        {
+            DTE dte = Microsoft.VisualStudio.Shell.Package.GetGlobalService(typeof(SDTE)) as DTE;
+            return dte.ActiveDocument.Path;
         }
     }
 }
