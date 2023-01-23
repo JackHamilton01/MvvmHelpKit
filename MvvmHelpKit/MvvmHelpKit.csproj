@@ -49,11 +49,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Commands\NavigateTo.cs" />
     <Compile Include="MvvmHelpKitPackage.cs" />
+    <Compile Include="Services\FileFinderService.cs" />
     <Compile Include="source.extension.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>source.extension.vsixmanifest</DependentUpon>
     </Compile>
+    <Compile Include="Types\FileTypes.cs" />
+    <Compile Include="Types\MvvmTypes.cs" />
     <Compile Include="VSCommandTable.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
