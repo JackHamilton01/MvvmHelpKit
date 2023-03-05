@@ -46,10 +46,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Commands\NavigateToBinding.cs" />
+    <Compile Include="Models\ViewModelLink.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Commands\NavigateTo.cs" />
     <Compile Include="MvvmHelpKitPackage.cs" />
+    <Compile Include="Services\ControllerReaderService.cs" />
     <Compile Include="Services\FileFinderService.cs" />
+    <Compile Include="Services\ModuleInteractionService.cs" />
     <Compile Include="source.extension.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
